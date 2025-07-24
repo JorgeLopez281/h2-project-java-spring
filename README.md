@@ -129,25 +129,48 @@ GET /app/task/{id}
 |:----------| :------- |:-----------------------------|
 | `id`      | `string` | **Requerido**. Id de la Task |
 
-#### Obtener un Usuario por Id
+#### Obtener todas las Task
 
 ```http
-GET /app/user/{id}
+GET /app/task
 ```
 
-| Parámetro | Tipo     | Descripción                  |
-|:----------| :------- |:-----------------------------|
-| `id`      | `string` | **Requerido**. Id de la Task |
-
-#### Obtener un Usuario por Id
+#### Crear una Task
 
 ```http
-PUT /app/user/{id}
+POST /app/task
 ```
 ```json
 {
-  "name": "string",
-  "email": "string"
+  "title": "string",
+  "description": "string",
+  "limitDate": "string",
+  "idUser": "integer",
+  "idTaskStatus": "integer"
+}
+```
+
+| Parámetro | Tipo     | Descripción                                       |
+|:----------| :------- |:--------------------------------------------------|
+| `title`      | `string` | **Requerido**. Titulo de la Task                  |
+| `description`      | `string` | **Requerido**. Descripcion de la Task             |
+| `limitDate`      | `string` | **Requerido**. Fecha Limite de la Task            |
+| `idUser`      | `string` | **Requerido**. Id del Usuario relacionado a la Task |
+| `idTaskStatus`      | `string` | **Requerido**. Id del Estado de la Tarea          |
+
+#### Modificar una tarea por Id
+
+```http
+PUT /app/task/{id}
+```
+
+```json
+{
+  "title": "string",
+  "description": "string",
+  "limitDate": "string",
+  "idUser": "integer",
+  "idTaskStatus": "integer"
 }
 ```
 
@@ -155,32 +178,25 @@ PUT /app/user/{id}
 |:----------| :------- |:-----------------------------|
 | `id`      | `string` | **Requerido**. Id de la Task |
 
-#### Eliminar un Usuario por Id
+| Parámetro | Tipo     | Descripción                                         |
+|:----------| :------- |:----------------------------------------------------|
+| `title`      | `string` | **Opcional**. Titulo de la Task                     |
+| `description`      | `string` | **Opcional**. Descripcion de la Task               |
+| `limitDate`      | `string` | **Opcional**. Fecha Limite de la Task              |
+| `idUser`      | `string` | **Opcional**. Id del Usuario relacionado a la Task |
+| `idTaskStatus`      | `string` | **Opcional**. Id del Estado de la Tarea            |
+
+
+#### Eliminar una Tarea por Id
 
 ```http
-DELETE /app/user/{id}
+DELETE /app/task/{id}
 ```
+
 | Parámetro | Tipo     | Descripción                  |
 |:----------| :------- |:-----------------------------|
 | `id`      | `string` | **Requerido**. Id de la Task |
 
-#### Obtener todos los usuarios de la DB
-
-```http
-GET /app/user
-```
-
-#### Crear un usuario en la DB
-
-```http
-POST /app/user
-```
-```json
-{
-  "name": "string",
-  "email": "string"
-}
-```
 
 ## Pila Tecnológica
 
